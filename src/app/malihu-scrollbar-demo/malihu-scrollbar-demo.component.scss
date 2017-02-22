@@ -1,0 +1,82 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+
+$highlight-color: #6bdaea;
+$link-color: #eb3755;
+$main-background-color: black;
+$card-dark-color: #333;
+$card-light-color: #ddd;
+
+:host {
+  display: block;
+  padding: 3rem;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+header {
+  h1 {
+    color: $highlight-color;
+  }
+
+  h4 {
+    a {
+      color: $link-color;
+    }
+    a:hover {
+      opacity: 0.87;
+    }
+  }
+
+  hr {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(0,0,0,0.9);
+    height: 0;
+  }
+}
+
+
+main {
+  display: inline-block;
+  background: $main-background-color;
+  border-radius: 5px;
+  margin-top: 16px;
+  padding: 8px;
+
+  div[malihu-scrollbar] {
+    border: 8px solid $main-background-color;
+    border-radius: 10px;
+    height: 500px;
+    line-height: 24px;
+    max-height: 500px;
+    padding: 16px;
+
+    &.dark {
+      background: $card-dark-color;
+
+      h3 {
+        color: $highlight-color;
+      }
+
+      hr {
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        border-top: 1px solid rgba(0,0,0,0.9);
+        height: 0;
+      }
+    }
+
+    &.light {
+      background: $card-light-color;
+      color: $card-dark-color;
+
+      h3 {
+        color: $card-dark-color;
+      }
+
+      hr {
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+        border-top: 1px solid rgba(0,0,0,0.2);
+        height: 0;
+      }
+    }
+  }
+}
