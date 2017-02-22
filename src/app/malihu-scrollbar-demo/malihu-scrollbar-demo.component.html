@@ -9,7 +9,7 @@
     *ngFor="let theme of themes"
     class="{{ theme.class }} col-xs-12 col-sm-6 col-md-4 col-lg-3"
     malihu-scrollbar
-    [scrollOptions]="theme.options"
+    [scrollbarOptions]="theme.options"
   >
     <h3>{{ theme.name }}</h3>
     <hr>

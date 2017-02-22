@@ -10,7 +10,7 @@ import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, Renderer } from
 })
 export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   @Input() scrollElementId: string;
-  @Input() scrollOptions: MCustomScrollbar.CustomScrollbarOptions;
+  @Input() scrollbarOptions: MCustomScrollbar.CustomScrollbarOptions;
 
   scrollableElement: JQuery;
 
@@ -39,7 +39,7 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   }
 
   initScrollbar() {
-    this.renderer.invokeElementMethod(this.scrollableElement, 'mCustomScrollbar', [this.scrollOptions]);
+    this.renderer.invokeElementMethod(this.scrollableElement, 'mCustomScrollbar', [this.scrollbarOptions]);
   }
 
   destroy() {

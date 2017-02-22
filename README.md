@@ -55,16 +55,16 @@ ngx-malihu-scrollbar provides both a directive and a service to apply the custom
 
 ### Directive
 
-You can use `malihu-scrollbar` directive directly on the HTML element and provide plugin options using `scrollOptions` input property.
+You can use `malihu-scrollbar` directive directly on the HTML element and provide plugin options using `scrollbarOptions` input property.
 
 ##### example.component.ts
 ```typescript
-public scrollOptions = { axis: 'yx', theme: 'minimal-dark' };
+public scrollbarOptions = { axis: 'yx', theme: 'minimal-dark' };
 ```
 
 ##### example.component.html
 ```html
-<div malihu-scrollbar [scrollOptions]="scrollOptions">
+<div malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
 </div>
 ```
