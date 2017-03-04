@@ -1,4 +1,4 @@
-# ngx-malihu-scrollbar
+# ngx-malihu-scrollbar [![CircleCI](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master.svg?style=shield&)](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master) [![version](https://img.shields.io/npm/v/ngx-malihu-scrollbar.svg?style=flat)](https://www.npmjs.com/package/ngx-malihu-scrollbar) [![npm](https://img.shields.io/npm/l/ngx-malihu-scrollbar.svg)](https://opensource.org/licenses/MIT) [![npm](https://david-dm.org/jfcere/ngx-malihu-scrollbar/status.svg)](https://david-dm.org/jfcere/ngx-malihu-scrollbar)
 
 Angular 2 Malihu jQuery Custom Scrollbar directive and service.
 
@@ -107,9 +107,9 @@ ng serve
 
 Here is the list of tasks that will be done on this library in a near future ...
 
-- Publish demo on github pages
+- ~~Publish demo on github pages~~
+- ~~Add CircleCI integration~~
 - Implement tests
-- Add CircleCI integration
 - Transpile library to Javascript
 
 ## Contribution
