@@ -1,14 +1,22 @@
-import { inject, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { MalihuScrollbarService } from './malihu-scrollbar.service';
 
-describe('MalihuScrollbarService:unit', () => {
+xdescribe('MalihuScrollbarService:unit', () => {
+  let mScrollbarService: MalihuScrollbarService;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MalihuScrollbarService],
+      providers: [
+        MalihuScrollbarService,
+      ],
     });
   });
 
-  it('should ...', inject([MalihuScrollbarService], (service: MalihuScrollbarService) => {
-    expect(service).toBeTruthy();
-  }));
+  beforeEach(() => {
+    mScrollbarService = TestBed.get(MalihuScrollbarService);
+  });
+
+  it('should create an instance', () => {
+    expect(mScrollbarService).toBeTruthy();
+  });
 });

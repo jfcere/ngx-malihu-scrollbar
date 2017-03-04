@@ -1,17 +1,16 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
+import { MalihuScrollbarModule } from '../malihu-scrollbar';
 import { MalihuScrollbarDemoComponent } from './malihu-scrollbar-demo.component';
 
-describe('MalihuScrollbarDemoComponent', () => {
+describe('MalihuScrollbarDemoComponent:unit', () => {
   let component: MalihuScrollbarDemoComponent;
   let fixture: ComponentFixture<MalihuScrollbarDemoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MalihuScrollbarDemoComponent ]
+      imports: [MalihuScrollbarModule],
+      declarations: [MalihuScrollbarDemoComponent],
     })
     .compileComponents();
   }));
