@@ -2,7 +2,7 @@
   "name": "ngx-malihu-scrollbar",
   "description": "Angular 2 Malihu jQuery Custom Scrollbar directive and service.",
   "homepage": "https://github.com/jfcere/ngx-malihu-scrollbar",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "author": {
     "name": "Jean-Francois Cere",
