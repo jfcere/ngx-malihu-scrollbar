@@ -1,6 +1,6 @@
 # ngx-malihu-scrollbar [![CircleCI](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master.svg?style=shield&)](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master) [![version](https://img.shields.io/npm/v/ngx-malihu-scrollbar.svg?style=flat)](https://www.npmjs.com/package/ngx-malihu-scrollbar) [![npm](https://img.shields.io/npm/l/ngx-malihu-scrollbar.svg)](https://opensource.org/licenses/MIT) [![npm](https://david-dm.org/jfcere/ngx-malihu-scrollbar/status.svg)](https://david-dm.org/jfcere/ngx-malihu-scrollbar)
 
-Angular 2 Malihu jQuery Custom Scrollbar directive and service.
+Angular 2+ Malihu jQuery Custom Scrollbar directive and service.
 
 Demo available @ [jfcere.github.io/ngx-malihu-scrollbar](https://jfcere.github.io/ngx-malihu-scrollbar)
 
@@ -55,7 +55,7 @@ ngx-malihu-scrollbar provides both a directive and a service to apply the custom
 
 ### Directive
 
-You can use `malihu-scrollbar` directive directly on the HTML element and provide plugin options using `scrollbarOptions` input property.
+You can use `malihu-scrollbar` directive directly on an HTML element and provide plugin options using `scrollbarOptions` input property.
 
 ##### example.component.ts
 ```typescript
@@ -71,7 +71,7 @@ public scrollbarOptions = { axis: 'yx', theme: 'minimal-dark' };
 
 ### Service
 
-Alternatively, you can initialize scrollbar customizations using `MalihuScrollbarService` by providing either a selector, jQuery object or a HTML element along with the scrolling options.
+Alternatively, you can initialize scrollbar customizations using `MalihuScrollbarService` by providing either a string selector, a jQuery object or an HTML element along with the scrolling options.
 
 The service also provide access to other Malihu Custom Scrollbar methods such as `scrollTo`, `update`, `disable` and `destroy`.
 

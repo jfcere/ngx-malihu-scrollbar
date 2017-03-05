@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.26",
+    "version": "1.0.0-rc.1",
     "name": "ngx-malihu-scrollbar"
   },
   "apps": [
@@ -25,8 +25,8 @@
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
       ],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
@@ -42,6 +42,16 @@
       "config": "./karma.conf.js"
     }
   },
+  "lint": [
+    {
+      "files": "src/**/*.ts",
+      "project": "src/tsconfig.json"
+    },
+    {
+      "files": "e2e/**/*.ts",
+      "project": "e2e/tsconfig.json"
+    }
+  ],
   "defaults": {
     "styleExt": "scss",
     "prefixInterfaces": false,
