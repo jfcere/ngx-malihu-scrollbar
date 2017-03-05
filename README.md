@@ -32,7 +32,7 @@ import { HomeComponent } from './home.component';
 })
 ```
 
-You will need to add both Malihu Custom Scrollbar javascript file and jQuery to your application.
+You will need to add Malihu Custom Scrollbar javascript and css files with jQuery to your application.
 
 If you are using [Angular CLI](https://cli.angular.io/) you can add the files by modifying the `angular-cli.json` file as below ...
 
