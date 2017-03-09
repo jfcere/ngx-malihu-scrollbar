@@ -12,7 +12,40 @@ Use the following command to add ngx-malihu-scrollbar library to your `package.j
 npm install ngx-malihu-scrollbar --save
 ```
 
-## Configuration
+You will need to add Malihu Custom Scrollbar javascript and css files with jQuery to your application.
+
+If you are using [Angular CLI](https://cli.angular.io/) you can follow the example below...
+
+### .angular-cli.json
+
+```diff
+"styles": [
+  "styles.scss",
++ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
+],
+"scripts": [
++ "../node_modules/jquery/dist/jquery.js",
++ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
+],
+```
+
+### tsconfig.app.json (for Angular-CLI >= 1.0.0-rc.0)
+
+```diff
+{
+  "compilerOptions": {
+    ...
+    "types": [
++     "jquery",
++     "mcustomscrollbar"
+    ]
+  },
+  ...
+}
+
+```
+
+## Usage
 
 You must import `MalihuScrollbarModule` inside your module to be able to use `malihu-scrollbar` directive or `MalihuScrollbarService`.
 
@@ -32,23 +65,6 @@ import { HomeComponent } from './home.component';
 })
 ```
 
-You will need to add Malihu Custom Scrollbar javascript and css files with jQuery to your application.
-
-If you are using [Angular CLI](https://cli.angular.io/) you can add the files by modifying the `angular-cli.json` file as below ...
-
-```diff
-"styles": [
-  "styles.scss",
-+ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
-],
-"scripts": [
-+ "../node_modules/jquery/dist/jquery.js",
-+ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
-],
-```
-
-## Usage
-
 ngx-malihu-scrollbar provides both a directive and a service to apply the custom scrollbar on your HTML element.
 
 > For a complete list of available customization options please refer to the original [Malihu Custom Scrollbar documentation](http://manos.malihu.gr/jquery-custom-content-scroller/).
@@ -57,12 +73,12 @@ ngx-malihu-scrollbar provides both a directive and a service to apply the custom
 
 You can use `malihu-scrollbar` directive directly on an HTML element and provide plugin options using `scrollbarOptions` input property.
 
-##### example.component.ts
+#### example.component.ts
 ```typescript
 public scrollbarOptions = { axis: 'yx', theme: 'minimal-dark' };
 ```
 
-##### example.component.html
+#### example.component.html
 ```html
 <div malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...
