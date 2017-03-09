@@ -92,17 +92,17 @@ Alternatively, you can initialize scrollbar customizations using `MalihuScrollba
 The service also provide access to other Malihu Custom Scrollbar methods such as `scrollTo`, `stop`, `update`, `disable` and `destroy`.
 
 ```typescript
-  constructor(
-    private mScrollbarService: MalihuScrollbarService,
-  ) { }
+constructor(
+  private mScrollbarService: MalihuScrollbarService,
+) { }
 
-  ngAfterViewInit() {
-    this.mScrollbarService.initScrollbar('#myElementId', { axis: 'y', theme: 'dark-thick', scrollButtons: { enable: true } });
-  }
+ngAfterViewInit() {
+  this.mScrollbarService.initScrollbar('#myElementId', { axis: 'y', theme: 'dark-thick', scrollButtons: { enable: true } });
+}
 
-  ngOnDestroy() {
-    this.mScrollbarService.destroy('#myElementId');
-  }
+ngOnDestroy() {
+  this.mScrollbarService.destroy('#myElementId');
+}
 ```
 
 ## Demo application

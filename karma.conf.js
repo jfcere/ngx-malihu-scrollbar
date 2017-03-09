@@ -8,6 +8,7 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
+      require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('karma-junit-reporter'),
       require('@angular/cli/plugins/karma')
@@ -29,7 +30,6 @@ module.exports = function (config) {
       fixWebpackSourcePaths: true
     },
     angularCli: {
-      config: './.angular-cli.json',
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
