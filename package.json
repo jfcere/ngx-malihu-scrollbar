@@ -27,7 +27,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "tslint \"src/**/*.ts\"",
     "e2e": "ng e2e",
     "build:gh-pages": "ng build --prod --base-href \"https://jfcere.github.io/ngx-malihu-scrollbar/\"",
     "publish:gh-pages": "angular-cli-ghpages --message \"Publish gh-pages\""
