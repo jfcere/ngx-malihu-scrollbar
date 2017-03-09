@@ -16,7 +16,7 @@ You will need to add Malihu Custom Scrollbar javascript and css files with jQuer
 
 If you are using [Angular CLI](https://cli.angular.io/) you can follow the example below...
 
-### .angular-cli.json
+#### .angular-cli.json
 
 ```diff
 "styles": [
@@ -29,7 +29,7 @@ If you are using [Angular CLI](https://cli.angular.io/) you can follow the examp
 ],
 ```
 
-### tsconfig.app.json (for Angular-CLI >= 1.0.0-rc.0)
+#### tsconfig.app.json (for Angular-CLI >= 1.0.0-rc.0)
 
 ```diff
 {
@@ -89,7 +89,7 @@ public scrollbarOptions = { axis: 'yx', theme: 'minimal-dark' };
 
 Alternatively, you can initialize scrollbar customizations using `MalihuScrollbarService` by providing either a string selector, a jQuery object or an HTML element along with the scrolling options.
 
-The service also provide access to other Malihu Custom Scrollbar methods such as `scrollTo`, `update`, `disable` and `destroy`.
+The service also provide access to other Malihu Custom Scrollbar methods such as `scrollTo`, `stop`, `update`, `disable` and `destroy`.
 
 ```typescript
   constructor(
