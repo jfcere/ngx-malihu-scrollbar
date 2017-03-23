@@ -18,7 +18,6 @@ describe('MalihuScrollbarDemoComponent:unit', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MalihuScrollbarDemoComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
