@@ -19,6 +19,11 @@ module.exports = function (config) {
     files: [
       { pattern: './src/test.ts', watched: false }
     ],
+    exclude: [
+      // need to exclude malihu-scrollbar js file otherwise we get an error when
+      // running tests on spec files that does not use the malihu-scrollbar plugin
+      './node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js'
+    ],
     preprocessors: {
       './src/test.ts': ['@angular/cli']
     },

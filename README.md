@@ -125,7 +125,7 @@ Here is the list of tasks that will be done on this library in a near future ...
 
 - ~~Publish demo on github pages~~
 - ~~Add CircleCI integration~~
-- Implement tests
+- ~~Implement tests~~
 - Transpile library to Javascript
 
 ## Contribution

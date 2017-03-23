@@ -25,7 +25,7 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.destroy();
+    this.destroyScrollbar();
   }
 
   initElements() {
@@ -34,7 +34,7 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
       : $(this.elementRef.nativeElement);
 
     if (!!this.scrollElementId && this.scrollableElement.length === 0) {
-      throw Error(`MalihuScrollbarDirective cannot find element with provided scrollElementId: ${this.scrollElementId}.`);
+      console.error(`MalihuScrollbarDirective cannot find element with provided scrollElementId: ${this.scrollElementId}.`);
     }
   }
 
@@ -42,7 +42,7 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
     this.renderer.invokeElementMethod(this.scrollableElement, 'mCustomScrollbar', [this.scrollbarOptions]);
   }
 
-  destroy() {
+  destroyScrollbar() {
     this.renderer.invokeElementMethod(this.scrollableElement, 'mCustomScrollbar', ['destroy']);
   }
 }
