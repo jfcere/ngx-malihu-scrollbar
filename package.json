@@ -23,12 +23,13 @@
     "scrollbar"
   ],
   "scripts": {
+    "build": "ng build",
+    "e2e": "ng e2e",
+    "lint": "tslint \"src/**/*.ts\"",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
-    "lint": "tslint \"src/**/*.ts\"",
-    "e2e": "ng e2e",
+    "coveralls": "cat \"./coverage/lcov.info\" | \"./node_modules/coveralls/bin/coveralls.js\"",
     "build:gh-pages": "ng build --prod --base-href \"https://jfcere.github.io/ngx-malihu-scrollbar/\"",
     "publish:gh-pages": "angular-cli-ghpages --message \"Publish gh-pages\""
   },
@@ -48,6 +49,7 @@
     "@angular/platform-browser-dynamic": "^2.4.0",
     "@angular/router": "^3.4.0",
     "core-js": "^2.4.1",
+    "coveralls": "^2.13.1",
     "rxjs": "^5.1.0",
     "zone.js": "^0.7.6",
     "@angular/cli": "1.0.0-rc.1",
