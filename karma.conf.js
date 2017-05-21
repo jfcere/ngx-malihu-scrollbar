@@ -38,7 +38,7 @@ module.exports = function (config) {
       environment: 'dev'
     },
     reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['progress', 'coverage-istanbul']
+              ? ['progress', 'junit', 'coverage-istanbul']
               : ['progress', 'junit'],
     junitReporter: {
       outputFile: 'test-results.xml',
