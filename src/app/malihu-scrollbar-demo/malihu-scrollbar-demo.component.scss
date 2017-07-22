@@ -14,11 +14,16 @@ $card-light-color: #ddd;
 }
 
 header {
-  h1 {
-    color: $highlight-color;
+  .title {
+    a {
+      color: $highlight-color;
+    }
+    a:hover {
+      opacity: 0.87;
+    }
   }
 
-  h4 {
+  .title-based-on {
     a {
       color: $link-color;
     }
