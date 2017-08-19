@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-type ScrollElement = string | JQuery | HTMLElement;
+export type ScrollElement = string | JQuery | HTMLElement;
 
 @Injectable()
 export class MalihuScrollbarService {
