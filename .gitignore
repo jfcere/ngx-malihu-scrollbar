@@ -2,7 +2,13 @@
 
 # compiled output
 /dist
+/inline-template
+/package
 /tmp
+*.ngfactory.ts
+*.ngsummary.json
+*.tar
+*.tgz
 
 # dependencies
 /node_modules
