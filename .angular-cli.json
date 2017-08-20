@@ -23,8 +23,8 @@
         "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

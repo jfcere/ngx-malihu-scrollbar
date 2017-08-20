@@ -25,8 +25,8 @@ If you are using [Angular CLI](https://cli.angular.io/) you can follow the examp
 + "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
 ],
 "scripts": [
-+ "../node_modules/jquery/dist/jquery.js",
-+ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"
++ "../node_modules/jquery/dist/jquery.min.js",
++ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"
 ],
 ```
 
