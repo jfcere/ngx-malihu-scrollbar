@@ -168,5 +168,12 @@ describe('MalihuScrollbarService:unit', () => {
 
       expect(returnValue).toBe(jQueryElement);
     });
+
+    it('should throw error when element type is unsupported', () => {
+
+      const object = <any>{ object: null };
+
+      expect(() => mScrollbarService['getElement'](object)).toThrowError(`Unsupported element type in MalihuScrollbarService: ${object}`);
+    });
   });
 });
