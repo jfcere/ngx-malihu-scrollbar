@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, Renderer } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, NgZone } from '@angular/core';
 
 /**
  * Malihu Custom Scrollbar directive
@@ -16,7 +16,7 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
 
   constructor(
     private elementRef: ElementRef,
-    private renderer: Renderer,
+    private zone: NgZone,
   ) { }
 
   ngAfterViewInit() {
@@ -39,10 +39,10 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   }
 
   initScrollbar() {
-    this.renderer.invokeElementMethod(this.scrollableElement, 'mCustomScrollbar', [this.scrollbarOptions]);
+    this.zone.runOutsideAngular(() => this.scrollableElement.mCustomScrollbar(this.scrollbarOptions));
   }
 
   destroyScrollbar() {
-    this.renderer.invokeElementMethod(this.scrollableElement, 'mCustomScrollbar', ['destroy']);
+    this.zone.runOutsideAngular(() => this.scrollableElement.mCustomScrollbar('destroy'));
   }
 }
