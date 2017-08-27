@@ -1,4 +1,4 @@
-import { ElementRef, Renderer } from '@angular/core';
+import { ElementRef, NgZone } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 
 import { MalihuScrollbarDirective } from './malihu-scrollbar.directive';
@@ -7,17 +7,11 @@ describe('MalihuScrollbarDirective:unit', () => {
   const mockElementRef = new ElementRef({ elementRef: true, nativeElement: 'native-element-x' });
 
   let mScrollbarDirective: MalihuScrollbarDirective;
-  let renderer: Renderer;
+  let zone: NgZone;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [Renderer],
-    });
-  });
-
-  beforeEach(() => {
-    renderer = TestBed.get(Renderer);
-    mScrollbarDirective = new MalihuScrollbarDirective(mockElementRef, renderer);
+    zone = TestBed.get(NgZone);
+    mScrollbarDirective = new MalihuScrollbarDirective(mockElementRef, zone);
   });
 
   describe('ngAfterViewInit', () => {
@@ -113,16 +107,18 @@ describe('MalihuScrollbarDirective:unit', () => {
 
     it('should initialize scrollbar correctly', () => {
 
-      const mockScrollableElement = <any>{ scrollableElement: true };
+      const mockScrollableElement = <any>{ mCustomScrollbar: () => null };
       const mockScrollbarOptions = <MCustomScrollbar.CustomScrollbarOptions>{ axis: 'yx', theme: 'theme-x' };
 
-      spyOn(renderer, 'invokeElementMethod');
+      spyOn(zone, 'runOutsideAngular').and.callFake(fn => fn());
+      spyOn(mockScrollableElement, 'mCustomScrollbar');
 
       mScrollbarDirective.scrollableElement = mockScrollableElement;
       mScrollbarDirective.scrollbarOptions = mockScrollbarOptions;
       mScrollbarDirective.initScrollbar();
 
-      expect(renderer.invokeElementMethod).toHaveBeenCalledWith(mockScrollableElement, 'mCustomScrollbar', [mockScrollbarOptions]);
+      expect(zone.runOutsideAngular).toHaveBeenCalled();
+      expect(mockScrollableElement.mCustomScrollbar).toHaveBeenCalledWith(mockScrollbarOptions);
     });
   });
 
@@ -130,14 +126,16 @@ describe('MalihuScrollbarDirective:unit', () => {
 
     it('should destroy scrollbar correctly', () => {
 
-      const mockScrollableElement = <any>{ scrollableElement: true };
+      const mockScrollableElement = <any>{ mCustomScrollbar: () => null };
 
-      spyOn(renderer, 'invokeElementMethod');
+      spyOn(zone, 'runOutsideAngular').and.callFake(fn => fn());
+      spyOn(mockScrollableElement, 'mCustomScrollbar');
 
       mScrollbarDirective.scrollableElement = mockScrollableElement;
       mScrollbarDirective.destroyScrollbar();
 
-      expect(renderer.invokeElementMethod).toHaveBeenCalledWith(mockScrollableElement, 'mCustomScrollbar', ['destroy']);
+      expect(zone.runOutsideAngular).toHaveBeenCalled();
+      expect(mockScrollableElement.mCustomScrollbar).toHaveBeenCalledWith('destroy');
     });
   });
 });

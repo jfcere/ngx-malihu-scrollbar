@@ -16,4 +16,9 @@ export class MalihuScrollbarModule {
       providers: [MalihuScrollbarService],
     };
   }
+  static forChild(): ModuleWithProviders {
+    return {
+      ngModule: MalihuScrollbarModule,
+    };
+  }
 }
