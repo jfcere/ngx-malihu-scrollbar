@@ -1,34 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 
 export type ScrollElement = string | JQuery | HTMLElement;
 
 @Injectable()
 export class MalihuScrollbarService {
 
-  constructor() { }
+  constructor(
+    private zone: NgZone,
+  ) { }
 
   initScrollbar(element: ScrollElement, options: MCustomScrollbar.CustomScrollbarOptions) {
-    this.getElement(element).mCustomScrollbar(options);
+    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar(options));
   }
 
   scrollTo(element: ScrollElement, parameter: any, options: MCustomScrollbar.ScrollToParameterOptions) {
-    this.getElement(element).mCustomScrollbar('scrollTo', parameter, options);
+    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('scrollTo', parameter, options));
   }
 
   update(element: ScrollElement) {
-    this.getElement(element).mCustomScrollbar('update');
+    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('update'));
   }
 
   stop(element: ScrollElement) {
-    this.getElement(element).mCustomScrollbar('stop');
+    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('stop'));
   }
 
   disable(element: ScrollElement) {
-    this.getElement(element).mCustomScrollbar('disable');
+    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('disable'));
   }
 
   destroy(element: ScrollElement) {
-    this.getElement(element).mCustomScrollbar('destroy');
+    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('destroy'));
   }
 
   private getElement(element: ScrollElement): JQuery {
