@@ -4,7 +4,15 @@
 Angular 2+ Malihu jQuery Custom Scrollbar directive and service.
 
 - Demo available @ [jfcere.github.io/ngx-malihu-scrollbar](https://jfcere.github.io/ngx-malihu-scrollbar)
-- Plunker available @ https://plnkr.co/edit/PPSjqjkznk6I3H0qSIXL?p=preview
+- Plunker available @ https://plnkr.co/edit/JcSTXc?p=preview
+
+### Table of contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Demo application](#demo-application)
+- [Road map](#road-map)
+- [Contribution](#contribution)
 
 ## Installation
 
