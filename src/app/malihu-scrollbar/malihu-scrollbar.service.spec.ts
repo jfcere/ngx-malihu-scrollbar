@@ -27,7 +27,7 @@ describe('MalihuScrollbarService:unit', () => {
         theme: 'theme-x',
       };
 
-      spyOn(mScrollbarService, 'getElement').and.returnValue(jQuery);
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
 
       mScrollbarService.initScrollbar(scrollElement, scrollOptions);
@@ -48,7 +48,7 @@ describe('MalihuScrollbarService:unit', () => {
         scrollEasing: 'scroll-easing-x',
       };
 
-      spyOn(mScrollbarService, 'getElement').and.returnValue(jQuery);
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
 
       mScrollbarService.scrollTo(scrollElement, parameter, scrollToParameterOptions);
@@ -65,7 +65,7 @@ describe('MalihuScrollbarService:unit', () => {
       const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
       const scrollElement = 'scroll-element-x';
 
-      spyOn(mScrollbarService, 'getElement').and.returnValue(jQuery);
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
 
       mScrollbarService.update(scrollElement);
@@ -82,7 +82,7 @@ describe('MalihuScrollbarService:unit', () => {
       const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
       const scrollElement = 'scroll-element-x';
 
-      spyOn(mScrollbarService, 'getElement').and.returnValue(jQuery);
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
 
       mScrollbarService.stop(scrollElement);
@@ -99,7 +99,7 @@ describe('MalihuScrollbarService:unit', () => {
       const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
       const scrollElement = 'scroll-element-x';
 
-      spyOn(mScrollbarService, 'getElement').and.returnValue(jQuery);
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
 
       mScrollbarService.disable(scrollElement);
@@ -116,7 +116,7 @@ describe('MalihuScrollbarService:unit', () => {
       const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
       const scrollElement = 'scroll-element-x';
 
-      spyOn(mScrollbarService, 'getElement').and.returnValue(jQuery);
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
 
       mScrollbarService.destroy(scrollElement);
@@ -133,7 +133,7 @@ describe('MalihuScrollbarService:unit', () => {
       const scrollElement = 'css-selector-x';
       const mockJQuery = <JQuery>{ mCustomScrollbar: () => {} };
 
-      spyOn(window, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake(selector => {
         return selector === scrollElement
           ? mockJQuery
           : null;
@@ -149,7 +149,7 @@ describe('MalihuScrollbarService:unit', () => {
       const htmlElement = document.createElement('div');
       const mockJQuery = <JQuery>{ mCustomScrollbar: () => {} };
 
-      spyOn(window, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake(selector => {
         return selector === htmlElement
           ? mockJQuery
           : null;
