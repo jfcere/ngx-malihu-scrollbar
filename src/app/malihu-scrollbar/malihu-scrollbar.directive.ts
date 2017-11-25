@@ -43,6 +43,14 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   }
 
   destroyScrollbar() {
-    this.zone.runOutsideAngular(() => this.scrollableElement.mCustomScrollbar('destroy'));
+    this.zone.runOutsideAngular(() => {
+      try {
+        this.scrollableElement.mCustomScrollbar('destroy');
+      } catch (error) {
+        // workaround for malihu-custom-scrollbar-plugin issue:
+        // Cannot read property 'autoUpdate' of undefined
+        // https://github.com/malihu/malihu-custom-scrollbar-plugin/issues/392
+      }
+    });
   }
 }
