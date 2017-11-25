@@ -124,15 +124,6 @@ describe('MalihuScrollbarService:unit', () => {
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
       expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('destroy');
     });
-
-    it('should swallow error if malihu-custom-scrollbar-plugin throws', () => {
-
-      const scrollElement = 'scroll-element-x';
-
-      spyOn(jQuery, 'mCustomScrollbar').and.throwError('error-x');
-
-      expect(mScrollbarService.destroy(scrollElement)).not.toThrow();
-    });
   });
 
   describe('getElement', () => {

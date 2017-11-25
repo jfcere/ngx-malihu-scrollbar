@@ -137,5 +137,16 @@ describe('MalihuScrollbarDirective:unit', () => {
       expect(zone.runOutsideAngular).toHaveBeenCalled();
       expect(mockScrollableElement.mCustomScrollbar).toHaveBeenCalledWith('destroy');
     });
+
+    it('should swallow error if malihu-custom-scrollbar-plugin throws', () => {
+
+      const mockScrollableElement = <any>{ mCustomScrollbar: () => null };
+
+      spyOn(mockScrollableElement, 'mCustomScrollbar').and.throwError('error-x');
+
+      mScrollbarDirective.scrollableElement = mockScrollableElement;
+
+      expect(() => mScrollbarDirective.destroyScrollbar()).not.toThrow();
+    });
   });
 });
