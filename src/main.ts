@@ -8,4 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(MalihuScrollbarDemoModule);
+platformBrowserDynamic()
+  .bootstrapModule(MalihuScrollbarDemoModule)
+  .catch(err => console.log(err));
