@@ -51,7 +51,7 @@ describe('MalihuScrollbarDirective:unit', () => {
       const scrollElementId = 'scroll-element-id-x';
       const mockJQueryElement = <JQuery>{ length: 1 };
 
-      spyOn(window, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake(selector => {
         return selector === `#${scrollElementId}`
           ? mockJQueryElement
           : null;
@@ -67,7 +67,7 @@ describe('MalihuScrollbarDirective:unit', () => {
 
       const mockJQueryElement = <JQuery>{ length: 1 };
 
-      spyOn(window, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake(selector => {
         return selector === mockElementRef.nativeElement
           ? mockJQueryElement
           : null;
@@ -87,7 +87,7 @@ describe('MalihuScrollbarDirective:unit', () => {
       const scrollElementId = 'scroll-element-id-x';
       const mockJQueryElement = <JQuery>{ length: 0 };
 
-      spyOn(window, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake(selector => {
         return selector === `#${scrollElementId}`
           ? mockJQueryElement
           : null;
