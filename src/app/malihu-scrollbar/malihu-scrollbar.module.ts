@@ -7,7 +7,6 @@ import { MalihuScrollbarService } from './malihu-scrollbar.service';
 @NgModule({
   exports: [MalihuScrollbarDirective],
   declarations: [MalihuScrollbarDirective],
-  providers: [MalihuScrollbarService],
 })
 export class MalihuScrollbarModule {
   static forRoot(): ModuleWithProviders {

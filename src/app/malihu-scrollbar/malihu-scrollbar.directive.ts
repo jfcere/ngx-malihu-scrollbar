@@ -1,4 +1,5 @@
-import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, NgZone } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, OnDestroy } from '@angular/core';
+import { MalihuScrollbarService } from './malihu-scrollbar.service';
 
 /**
  * Malihu Custom Scrollbar directive
@@ -16,7 +17,7 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
 
   constructor(
     private elementRef: ElementRef,
-    private zone: NgZone,
+    private mScrollbarService: MalihuScrollbarService,
   ) { }
 
   ngAfterViewInit() {
@@ -39,18 +40,16 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   }
 
   initScrollbar() {
-    this.zone.runOutsideAngular(() => this.scrollableElement.mCustomScrollbar(this.scrollbarOptions));
+    this.mScrollbarService.initScrollbar(this.scrollableElement, this.scrollbarOptions);
   }
 
   destroyScrollbar() {
-    this.zone.runOutsideAngular(() => {
-      try {
-        this.scrollableElement.mCustomScrollbar('destroy');
-      } catch (error) {
-        // workaround for malihu-custom-scrollbar-plugin issue:
-        // Cannot read property 'autoUpdate' of undefined
-        // https://github.com/malihu/malihu-custom-scrollbar-plugin/issues/392
-      }
-    });
+    try {
+      this.mScrollbarService.destroy(this.scrollableElement);
+    } catch (error) {
+      // workaround for malihu-custom-scrollbar-plugin issue:
+      // Cannot read property 'autoUpdate' of undefined
+      // https://github.com/malihu/malihu-custom-scrollbar-plugin/issues/392
+    }
   }
 }

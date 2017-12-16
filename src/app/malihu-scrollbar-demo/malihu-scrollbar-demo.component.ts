@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { MalihuScrollbarService } from './../malihu-scrollbar/malihu-scrollbar.service';
+import { OnInit, Component } from '@angular/core';
 
 interface ITheme {
   name: string;
@@ -11,7 +12,7 @@ interface ITheme {
   templateUrl: './malihu-scrollbar-demo.component.html',
   styleUrls: ['./malihu-scrollbar-demo.component.scss']
 })
-export class MalihuScrollbarDemoComponent {
+export class MalihuScrollbarDemoComponent implements OnInit {
 
   loremIpsum = require('raw-loader!./lorem-ipsum.txt');
 
@@ -42,5 +43,14 @@ export class MalihuScrollbarDemoComponent {
     { name: '"3d-dark"', class: 'light', options: { axis: 'y', theme: '3d-dark', scrollButtons: { enable: true } } },
     { name: '"3d-thick"', class: 'dark', options: { axis: 'y', theme: '3d-thick', scrollButtons: { enable: true } } },
     { name: '"3d-thick-dark"', class: 'light', options: { axis: 'y', theme: '3d-thick-dark', scrollButtons: { enable: true } } },
+    { name: '"custom-theme"', class: 'dark', options: { axis: 'y', theme: 'metro', scrollbarPosition: 'outside' } },
   ];
+
+  constructor(
+    private mScrollbarService: MalihuScrollbarService,
+  ) { }
+
+  ngOnInit() {
+    this.mScrollbarService.initScrollbar(document.body, { axis: 'yx', theme: 'metro' });
+  }
 }

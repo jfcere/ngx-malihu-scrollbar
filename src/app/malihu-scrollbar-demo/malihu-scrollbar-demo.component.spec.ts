@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MalihuScrollbarModule } from '../malihu-scrollbar';
+import { MalihuScrollbarModule, MalihuScrollbarService } from '../malihu-scrollbar';
 import { MalihuScrollbarDemoComponent } from './malihu-scrollbar-demo.component';
 
 describe('MalihuScrollbarDemoComponent:unit', () => {
@@ -11,6 +11,7 @@ describe('MalihuScrollbarDemoComponent:unit', () => {
     TestBed.configureTestingModule({
       imports: [MalihuScrollbarModule],
       declarations: [MalihuScrollbarDemoComponent],
+      providers: [MalihuScrollbarService],
     })
     .compileComponents();
   }));
