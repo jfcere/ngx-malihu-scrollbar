@@ -3,6 +3,8 @@
 
 Angular 2+ Malihu jQuery Custom Scrollbar directive and service.
 
+> Malihu jQuery Custom Scrollbar is a highly customizable scrollbar plugin that include vertical and/or horizontal scrollbar(s), adjustable scrolling momentum, mouse-wheel (via jQuery mousewheel plugin), keyboard and touch support, ready-to-use themes and customization via CSS, RTL direction support, option parameters for full control of scrollbar functionality, methods for triggering actions like scroll-to, update, destroy etc., user-defined callbacks and more.
+
 - Demo available @ [jfcere.github.io/ngx-malihu-scrollbar](https://jfcere.github.io/ngx-malihu-scrollbar)
 - Plunker available @ https://plnkr.co/edit/JcSTXc?p=preview
 
@@ -10,6 +12,7 @@ Angular 2+ Malihu jQuery Custom Scrollbar directive and service.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [FAQ](#faq)
 - [Demo application](#demo-application)
 - [Road map](#road-map)
 - [Contribution](#contribution)
@@ -112,6 +115,30 @@ ngAfterViewInit() {
 
 ngOnDestroy() {
   this.mScrollbarService.destroy('#myElementId');
+}
+```
+
+## FAQ
+
+### Can we customize the scrollbars?
+Of course, the scrollbars are fully customizable. You can easily clone an existing theme and modify the CSS to apply your own styling. Follow the instructions provided on the original [Malihu Custom Scrollbar Plugin documentation](http://manos.malihu.gr/jquery-custom-content-scroller/#styling-section) for more details.
+
+> The "custom-theme" example on the bottom of the [demo](https://jfcere.github.io/ngx-malihu-scrollbar) is a good example of customization where I created a my own "metro" theme.
+
+### How can we apply scrollbar customization on the body?
+Using `MalihuScrollbarService` you can target `document.body` to apply customization to the body scrollbar.
+
+> Note that this will automaticaly add some specific CSS to the `<body>` element that is needed to allow scrollbar customization.
+
+```typescript
+import { MalihuScrollbarService } from 'ngx-malihu-scrollbar';
+
+constructor(
+  private mScrollbarService: MalihuScrollbarService,
+) { }
+
+ngOnInit() {
+  this.mScrollbarService.initScrollbar(document.body, { axis: 'yx', theme: 'dark-3' });
 }
 ```
 

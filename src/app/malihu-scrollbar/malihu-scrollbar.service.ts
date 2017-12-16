@@ -10,7 +10,16 @@ export class MalihuScrollbarService {
   ) { }
 
   initScrollbar(element: ScrollElement, options: MCustomScrollbar.CustomScrollbarOptions) {
-    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar(options));
+    const jQueryElement = this.getElement(element);
+
+    this.zone.runOutsideAngular(() => jQueryElement.mCustomScrollbar(options));
+
+    if (jQueryElement.length > 0 && jQueryElement[0].tagName === 'BODY') {
+      jQueryElement[0].style.position = 'absolute';
+      jQueryElement[0].style.overflow = 'auto';
+      jQueryElement[0].style.height = '100vh';
+      jQueryElement[0].style.width = '100vw';
+    }
   }
 
   scrollTo(element: ScrollElement, parameter: any, options: MCustomScrollbar.ScrollToParameterOptions) {

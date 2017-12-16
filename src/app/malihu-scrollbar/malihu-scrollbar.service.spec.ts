@@ -35,6 +35,31 @@ describe('MalihuScrollbarService:unit', () => {
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
       expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith(scrollOptions);
     });
+
+    it('should apply style correctly when element is body', () => {
+
+      const scrollElement = document.body;
+
+      mScrollbarService.initScrollbar(scrollElement, { theme: 'theme-x' });
+
+      expect(scrollElement.style.position).toBe('absolute');
+      expect(scrollElement.style.overflow).toBe('auto');
+      expect(scrollElement.style.height).toBe('100vh');
+      expect(scrollElement.style.width).toBe('100vw');
+    });
+
+    it('should not apply style when element is not body', () => {
+
+      const scrollElement = document.createElement('DIV');
+      document.body.appendChild(scrollElement);
+
+      mScrollbarService.initScrollbar(scrollElement, { theme: 'theme-x' });
+
+      expect(scrollElement.style.position).not.toBe('absolute');
+      expect(scrollElement.style.overflow).not.toBe('auto');
+      expect(scrollElement.style.height).not.toBe('100vh');
+      expect(scrollElement.style.width).not.toBe('100vw');
+    });
   });
 
   describe('scrollTo', () => {

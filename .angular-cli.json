@@ -20,7 +20,8 @@
       "prefix": "malihu",
       "styles": [
         "styles.scss",
-        "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
+        "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css",
+        "app/malihu-scrollbar-demo/metro.theme.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
