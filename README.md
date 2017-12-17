@@ -138,7 +138,7 @@ constructor(
 ) { }
 
 ngOnInit() {
-  this.mScrollbarService.initScrollbar(document.body, { axis: 'yx', theme: 'dark-3' });
+  this.mScrollbarService.initScrollbar(document.body, { axis: 'y', theme: 'dark-3' });
 }
 ```
 

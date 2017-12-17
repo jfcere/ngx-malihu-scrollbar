@@ -51,6 +51,6 @@ export class MalihuScrollbarDemoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.mScrollbarService.initScrollbar(document.body, { axis: 'yx', theme: 'metro' });
+    this.mScrollbarService.initScrollbar(document.body, { axis: 'y', theme: 'metro' });
   }
 }
