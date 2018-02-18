@@ -130,7 +130,21 @@ describe('MalihuScrollbarService:unit', () => {
       mScrollbarService.disable(scrollElement);
 
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
-      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('disable');
+      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('disable', false);
+    });
+
+    it('should invoke disable with "reset content" option', () => {
+
+      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const scrollElement = 'scroll-element-x';
+
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
+      spyOn(jQuery, 'mCustomScrollbar');
+
+      mScrollbarService.disable(scrollElement, true);
+
+      expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
+      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('disable', true);
     });
   });
 

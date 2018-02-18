@@ -34,8 +34,8 @@ export class MalihuScrollbarService {
     this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('stop'));
   }
 
-  disable(element: ScrollElement) {
-    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('disable'));
+  disable(element: ScrollElement, reset?: boolean) {
+    this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('disable', !!reset));
   }
 
   destroy(element: ScrollElement) {
