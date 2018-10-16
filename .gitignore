@@ -2,17 +2,12 @@
 
 # compiled output
 /dist
-/inline-template
-/out-tsc
-/package
+/documentation
 /tmp
-*.ngfactory.ts
-*.ngsummary.json
-*.tar
-*.tgz
+/out-tsc
 
 # dependencies
-/node_modules
+**/node_modules
 
 # IDEs and editors
 /.idea
@@ -35,16 +30,14 @@
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
-testem.log
+/package
 /typings
-
-# junit reporter
+package-lock.json
 test-results.xml
-
-# e2e
-/e2e/*.js
-/e2e/*.map
+tslint.xml
+*.log
+*.tar
+*.tgz
 
 # System Files
 .DS_Store
