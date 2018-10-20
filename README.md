@@ -1,12 +1,13 @@
 # ngx-malihu-scrollbar
-[![CircleCI](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master.svg?style=shield&)](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master) [![Coverage Status](https://coveralls.io/repos/github/jfcere/ngx-malihu-scrollbar/badge.svg?branch=master)](https://coveralls.io/github/jfcere/ngx-malihu-scrollbar?branch=master) [![version](https://img.shields.io/npm/v/ngx-malihu-scrollbar.svg?style=flat)](https://www.npmjs.com/package/ngx-malihu-scrollbar) [![npm](https://img.shields.io/npm/l/ngx-malihu-scrollbar.svg)](https://opensource.org/licenses/MIT) [![dependencies Status](https://david-dm.org/jfcere/ngx-malihu-scrollbar/status.svg)](https://david-dm.org/jfcere/ngx-malihu-scrollbar) [![peerDependencies Status](https://david-dm.org/jfcere/ngx-malihu-scrollbar/peer-status.svg)](https://david-dm.org/jfcere/ngx-malihu-scrollbar?type=peer) [![monthly Downloads](https://img.shields.io/npm/dm/ngx-malihu-scrollbar.svg)](https://www.npmjs.com/package/ngx-malihu-scrollbar)
+[![CircleCI](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master.svg?style=shield)](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master) [![Coverage Status](https://coveralls.io/repos/github/jfcere/ngx-malihu-scrollbar/badge.svg?branch=master)](https://coveralls.io/github/jfcere/ngx-malihu-scrollbar?branch=master) [![version](https://img.shields.io/npm/v/ngx-malihu-scrollbar.svg?style=flat)](https://www.npmjs.com/package/ngx-malihu-scrollbar) [![npm](https://img.shields.io/npm/l/ngx-malihu-scrollbar.svg)](https://opensource.org/licenses/MIT) [![dependencies Status](https://david-dm.org/jfcere/ngx-malihu-scrollbar/status.svg?path=lib)](https://david-dm.org/jfcere/ngx-malihu-scrollbar?path=lib) [![peerDependencies Status](https://david-dm.org/jfcere/ngx-malihu-scrollbar/peer-status.svg?path=lib)](https://david-dm.org/jfcere/ngx-malihu-scrollbar?path=lib&type=peer) [![monthly Downloads](https://img.shields.io/npm/dm/ngx-malihu-scrollbar.svg)](https://www.npmjs.com/package/ngx-malihu-scrollbar)
 
-Angular 2+ Malihu jQuery Custom Scrollbar directive and service.
+Angular Malihu jQuery Custom Scrollbar directive and service.
 
 > Malihu jQuery Custom Scrollbar is a highly customizable scrollbar plugin that include vertical and/or horizontal scrollbar(s), adjustable scrolling momentum, mouse-wheel (via jQuery mousewheel plugin), keyboard and touch support, ready-to-use themes and customization via CSS, RTL direction support, option parameters for full control of scrollbar functionality, methods for triggering actions like scroll-to, update, destroy etc., user-defined callbacks and more.
 
 - Demo available @ [jfcere.github.io/ngx-malihu-scrollbar](https://jfcere.github.io/ngx-malihu-scrollbar)
 - Plunker available @ https://plnkr.co/edit/JcSTXc?p=preview
+- StackBlitz available @ https://stackblitz.com/edit/ngx-malihu-scrollbar
 
 ### Table of contents
 
@@ -14,7 +15,6 @@ Angular 2+ Malihu jQuery Custom Scrollbar directive and service.
 - [Usage](#usage)
 - [FAQ](#faq)
 - [Demo application](#demo-application)
-- [Road map](#road-map)
 - [Contribution](#contribution)
 
 ## Installation
@@ -29,20 +29,20 @@ You will need to add Malihu Custom Scrollbar javascript and css files with jQuer
 
 If you are using [Angular CLI](https://cli.angular.io/) you can follow the example below...
 
-#### .angular-cli.json
+#### angular.json
 
 ```diff
 "styles": [
-  "styles.scss",
-+ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
+  "src/styles.scss",
++ "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css"
 ],
 "scripts": [
-+ "../node_modules/jquery/dist/jquery.min.js",
-+ "../node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"
++ "node_modules/jquery/dist/jquery.min.js",
++ "node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"
 ],
 ```
 
-#### tsconfig.app.json (for Angular-CLI >= 1.0.0-rc.0)
+#### tsconfig.app.json
 
 ```diff
 {
@@ -144,7 +144,7 @@ ngOnInit() {
 
 ## Demo application
 
-You can find the [demo](https://jfcere.github.io/ngx-malihu-scrollbar) source code inside the `src/app/malihu-scrollbar-demo` directory.
+You can find the [demo](https://jfcere.github.io/ngx-malihu-scrollbar) source code inside the `demo` directory.
 
 The following commands will clone the repository, install npm dependencies and serve the application @ [http://localhost:4200](http://localhost:4200)
 
@@ -155,15 +155,6 @@ npm install
 
 ng serve
 ```
-
-## Road map
-
-Here is the list of tasks that will be done on this library in a near future ...
-
-- ~~Publish demo on github pages~~
-- ~~Add CircleCI integration~~
-- ~~Implement tests~~
-- ~~Transpile library to Javascript~~
 
 ## Contribution
 
