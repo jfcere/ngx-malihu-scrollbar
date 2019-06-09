@@ -1,6 +1,6 @@
 {
   "name": "ngx-malihu-scrollbar",
-  "version": "7.0.0",
+  "version": "8.0.0-beta.0",
   "description": "Angular scrollbar customization using Malihu jQuery Custom Scrollbar plugin",
   "homepage": "https://github.com/jfcere/ngx-malihu-scrollbar",
   "license": "MIT",
@@ -20,12 +20,11 @@
   ],
   "dependencies": {
     "@types/mcustomscrollbar": "^2.8.30",
-    "jquery": "^3.0.0",
+    "jquery": "^3.4.1",
     "malihu-custom-scrollbar-plugin": "^3.1.5"
   },
   "peerDependencies": {
-    "@angular/core": "^6.0.0 || ^7.0.0",
-    "core-js": "^2.5.4",
-    "zone.js": "^0.8.26"
+    "@angular/core": "^7.0.0 || ^8.0.0",
+    "zone.js": "^0.8.26 || ^0.9.1"
   }
 }
