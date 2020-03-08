@@ -6,7 +6,6 @@ Angular Malihu jQuery Custom Scrollbar directive and service.
 > Malihu jQuery Custom Scrollbar is a highly customizable scrollbar plugin that include vertical and/or horizontal scrollbar(s), adjustable scrolling momentum, mouse-wheel (via jQuery mousewheel plugin), keyboard and touch support, ready-to-use themes and customization via CSS, RTL direction support, option parameters for full control of scrollbar functionality, methods for triggering actions like scroll-to, update, destroy etc., user-defined callbacks and more.
 
 - Demo available @ [jfcere.github.io/ngx-malihu-scrollbar](https://jfcere.github.io/ngx-malihu-scrollbar)
-- Plunker available @ https://plnkr.co/edit/JcSTXc?p=preview
 - StackBlitz available @ https://stackblitz.com/edit/ngx-malihu-scrollbar
 
 ### Table of contents
