@@ -11,7 +11,7 @@ describe('MalihuScrollbarDirective:unit', () => {
   let mScrollbarService: MalihuScrollbarService;
 
   beforeEach(() => {
-    const zone = TestBed.get(NgZone);
+    const zone = TestBed.inject(NgZone);
     mScrollbarService = new MalihuScrollbarService(zone);
     mScrollbarDirective = new MalihuScrollbarDirective(mockElementRef, mScrollbarService);
   });
@@ -51,7 +51,7 @@ describe('MalihuScrollbarDirective:unit', () => {
     it('should set scrollableElement according to scrollElementId when provided', () => {
 
       const scrollElementId = 'scroll-element-id-x';
-      const mockJQueryElement = <JQuery>{ length: 1 };
+      const mockJQueryElement =  { length: 1 } as JQuery;
 
       spyOn(window as any, '$').and.callFake(selector => {
         return selector === `#${scrollElementId}`
@@ -67,7 +67,7 @@ describe('MalihuScrollbarDirective:unit', () => {
 
     it('should set scrollableElement to applied directive element when scrollELementId is not provided', () => {
 
-      const mockJQueryElement = <JQuery>{ length: 1 };
+      const mockJQueryElement =  { length: 1 } as JQuery;
 
       spyOn(window as any, '$').and.callFake(selector => {
         return selector === mockElementRef.nativeElement
@@ -87,7 +87,7 @@ describe('MalihuScrollbarDirective:unit', () => {
     it('should log an error in console when element corresponding to scrollElementId cannot be found', () => {
 
       const scrollElementId = 'scroll-element-id-x';
-      const mockJQueryElement = <JQuery>{ length: 0 };
+      const mockJQueryElement =  { length: 0 } as JQuery;
 
       spyOn(window as any, '$').and.callFake(selector => {
         return selector === `#${scrollElementId}`
@@ -109,8 +109,8 @@ describe('MalihuScrollbarDirective:unit', () => {
 
     it('should initialize scrollbar correctly', () => {
 
-      const mockScrollableElement = <any>{ scrollableElement: true };
-      const mockScrollbarOptions = <MCustomScrollbar.CustomScrollbarOptions>{ axis: 'yx', theme: 'theme-x' };
+      const mockScrollableElement =  { scrollableElement: true } as any;
+      const mockScrollbarOptions =  { axis: 'yx', theme: 'theme-x' } as MCustomScrollbar.CustomScrollbarOptions;
 
       spyOn(mScrollbarService, 'initScrollbar');
 
@@ -126,7 +126,7 @@ describe('MalihuScrollbarDirective:unit', () => {
 
     it('should destroy scrollbar through MalihuScrollbarService correctly', () => {
 
-      const mockScrollableElement = <any>{ scrollableElement: true };
+      const mockScrollableElement =  { scrollableElement: true } as any;
 
       spyOn(mScrollbarService, 'destroy');
 
@@ -138,7 +138,7 @@ describe('MalihuScrollbarDirective:unit', () => {
 
     it('should swallow error if malihu-custom-scrollbar-plugin throws', () => {
 
-      const mockScrollableElement = <any>{ mCustomScrollbar: () => null };
+      const mockScrollableElement =  { mCustomScrollbar: () => null } as any;
 
       spyOn(mockScrollableElement, 'mCustomScrollbar').and.throwError('error-x');
 

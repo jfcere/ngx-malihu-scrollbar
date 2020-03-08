@@ -13,19 +13,19 @@ describe('MalihuScrollbarService:unit', () => {
   });
 
   beforeEach(() => {
-    mScrollbarService = TestBed.get(MalihuScrollbarService);
+    mScrollbarService = TestBed.inject(MalihuScrollbarService);
   });
 
   describe('initScrollbar', () => {
 
     it('should initialize scrollbar correctly', () => {
 
-      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
-      const scrollOptions = <MCustomScrollbar.CustomScrollbarOptions>{
+      const scrollOptions =  {
         axis: 'yx',
         theme: 'theme-x',
-      };
+      } as MCustomScrollbar.CustomScrollbarOptions;
 
       spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
@@ -66,12 +66,12 @@ describe('MalihuScrollbarService:unit', () => {
 
     it('should invoke scrollTo correctly', () => {
 
-      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
       const parameter = 100;
-      const scrollToParameterOptions = <MCustomScrollbar.ScrollToParameterOptions>{
+      const scrollToParameterOptions =  {
         scrollEasing: 'scroll-easing-x',
-      };
+      } as MCustomScrollbar.ScrollToParameterOptions;
 
       spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
       spyOn(jQuery, 'mCustomScrollbar');
@@ -79,7 +79,7 @@ describe('MalihuScrollbarService:unit', () => {
       mScrollbarService.scrollTo(scrollElement, parameter, scrollToParameterOptions);
 
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
-      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('scrollTo', parameter, scrollToParameterOptions);
+      expect(jQuery.mCustomScrollbar as Function).toHaveBeenCalledWith('scrollTo', parameter, scrollToParameterOptions);
     });
   });
 
@@ -87,7 +87,7 @@ describe('MalihuScrollbarService:unit', () => {
 
     it('should invoke update correctly', () => {
 
-      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
 
       spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
@@ -96,7 +96,7 @@ describe('MalihuScrollbarService:unit', () => {
       mScrollbarService.update(scrollElement);
 
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
-      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('update');
+      expect(jQuery.mCustomScrollbar as Function).toHaveBeenCalledWith('update');
     });
   });
 
@@ -104,7 +104,7 @@ describe('MalihuScrollbarService:unit', () => {
 
     it('should invoke stop correctly', () => {
 
-      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
 
       spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
@@ -113,7 +113,7 @@ describe('MalihuScrollbarService:unit', () => {
       mScrollbarService.stop(scrollElement);
 
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
-      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('stop');
+      expect(jQuery.mCustomScrollbar as Function).toHaveBeenCalledWith('stop');
     });
   });
 
@@ -121,7 +121,7 @@ describe('MalihuScrollbarService:unit', () => {
 
     it('should invoke disable correctly', () => {
 
-      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
 
       spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
@@ -130,12 +130,12 @@ describe('MalihuScrollbarService:unit', () => {
       mScrollbarService.disable(scrollElement);
 
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
-      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('disable', false);
+      expect(jQuery.mCustomScrollbar as Function).toHaveBeenCalledWith('disable', false);
     });
 
     it('should invoke disable with "reset content" option', () => {
 
-      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
 
       spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
@@ -144,7 +144,7 @@ describe('MalihuScrollbarService:unit', () => {
       mScrollbarService.disable(scrollElement, true);
 
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
-      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('disable', true);
+      expect(jQuery.mCustomScrollbar as Function).toHaveBeenCalledWith('disable', true);
     });
   });
 
@@ -152,7 +152,7 @@ describe('MalihuScrollbarService:unit', () => {
 
     it('should invoke destroy correctly', () => {
 
-      const jQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
 
       spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
@@ -161,7 +161,7 @@ describe('MalihuScrollbarService:unit', () => {
       mScrollbarService.destroy(scrollElement);
 
       expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
-      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith('destroy');
+      expect(jQuery.mCustomScrollbar as Function).toHaveBeenCalledWith('destroy');
     });
   });
 
@@ -170,7 +170,7 @@ describe('MalihuScrollbarService:unit', () => {
     it('should return JQuery element when using css selector string', () => {
 
       const scrollElement = 'css-selector-x';
-      const mockJQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const mockJQuery =  { mCustomScrollbar: () => {} } as JQuery;
 
       spyOn(window as any, '$').and.callFake(selector => {
         return selector === scrollElement
@@ -186,7 +186,7 @@ describe('MalihuScrollbarService:unit', () => {
     it('should return JQuery element when using html element', () => {
 
       const htmlElement = document.createElement('div');
-      const mockJQuery = <JQuery>{ mCustomScrollbar: () => {} };
+      const mockJQuery =  { mCustomScrollbar: () => {} } as JQuery;
 
       spyOn(window as any, '$').and.callFake(selector => {
         return selector === htmlElement
@@ -201,7 +201,7 @@ describe('MalihuScrollbarService:unit', () => {
 
     it('should return JQuery element when using JQuery element', () => {
 
-      const jQueryElement = <JQuery>{ jquery: null };
+      const jQueryElement =  { jquery: null } as JQuery;
 
       const returnValue = mScrollbarService['getElement'](jQueryElement);
 
@@ -210,7 +210,7 @@ describe('MalihuScrollbarService:unit', () => {
 
     it('should throw error when element type is unsupported', () => {
 
-      const object = <any>{ object: null };
+      const object =  { object: null } as any;
 
       expect(() => mScrollbarService['getElement'](object)).toThrowError(`Unsupported element type in MalihuScrollbarService: ${object}`);
     });

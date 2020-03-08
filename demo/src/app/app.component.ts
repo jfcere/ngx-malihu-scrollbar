@@ -14,7 +14,7 @@ interface ITheme {
 })
 export class AppComponent implements OnInit {
 
-  loremIpsum = require('raw-loader!./lorem-ipsum.txt');
+  loremIpsum = require('raw-loader!./lorem-ipsum.txt').default;
 
   themes: ITheme[] = [
     { name: '"light" (default)', class: 'dark', options: { axis: 'y', theme: 'light', scrollButtons: { enable: true } } },
