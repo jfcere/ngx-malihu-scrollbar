@@ -17,7 +17,7 @@ describe('MalihuScrollbarDirective:unit', () => {
   });
 
   describe('ngAfterViewInit', () => {
-    const callOrder = [];
+    const callOrder: string[] = [];
 
     beforeEach(() => {
       spyOn(mScrollbarDirective, 'initElements').and.callFake(() => callOrder.push('initElements'));
@@ -53,7 +53,7 @@ describe('MalihuScrollbarDirective:unit', () => {
       const scrollElementId = 'scroll-element-id-x';
       const mockJQueryElement =  { length: 1 } as JQuery;
 
-      spyOn(window as any, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake((selector: string) => {
         return selector === `#${scrollElementId}`
           ? mockJQueryElement
           : null;
@@ -69,7 +69,7 @@ describe('MalihuScrollbarDirective:unit', () => {
 
       const mockJQueryElement =  { length: 1 } as JQuery;
 
-      spyOn(window as any, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake((selector: { elementRef: boolean; nativeElement: string; }) => {
         return selector === mockElementRef.nativeElement
           ? mockJQueryElement
           : null;
@@ -77,7 +77,7 @@ describe('MalihuScrollbarDirective:unit', () => {
 
       ['', null, undefined].forEach(scrollElementId => {
 
-        mScrollbarDirective.scrollElementId = scrollElementId;
+        mScrollbarDirective.scrollElementId = scrollElementId as string;
         mScrollbarDirective.initElements();
 
         expect(mScrollbarDirective.scrollableElement).toBe(mockJQueryElement);
@@ -89,7 +89,7 @@ describe('MalihuScrollbarDirective:unit', () => {
       const scrollElementId = 'scroll-element-id-x';
       const mockJQueryElement =  { length: 0 } as JQuery;
 
-      spyOn(window as any, '$').and.callFake(selector => {
+      spyOn(window as any, '$').and.callFake((selector: string) => {
         return selector === `#${scrollElementId}`
           ? mockJQueryElement
           : null;

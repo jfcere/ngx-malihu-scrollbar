@@ -2,34 +2,34 @@ import { AfterViewInit, Directive, ElementRef, Input, OnDestroy } from '@angular
 import { MalihuScrollbarService } from './malihu-scrollbar.service';
 
 /**
- * Malihu Custom Scrollbar directive
- * Use this reference link for options definition
+ * Malihu Custom Scrollbar directive.
+ * Use this reference link for options definition:
  * http://manos.malihu.gr/jquery-custom-content-scroller/
  */
 @Directive({
   selector: '[MalihuScrollbar], [malihu-scrollbar]',
 })
 export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
-  @Input() scrollElementId: string;
-  @Input() scrollbarOptions: MCustomScrollbar.CustomScrollbarOptions;
+  @Input() scrollElementId: string | undefined;
+  @Input() scrollbarOptions: MCustomScrollbar.CustomScrollbarOptions = {};
 
-  scrollableElement: JQuery;
+  scrollableElement: JQuery | undefined;
 
   constructor(
     private elementRef: ElementRef,
     private mScrollbarService: MalihuScrollbarService,
   ) { }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.initElements();
     this.initScrollbar();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroyScrollbar();
   }
 
-  initElements() {
+  initElements(): void {
     this.scrollableElement = !!this.scrollElementId
       ? $(`#${this.scrollElementId}`)
       : $(this.elementRef.nativeElement);
@@ -39,17 +39,21 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
     }
   }
 
-  initScrollbar() {
-    this.mScrollbarService.initScrollbar(this.scrollableElement, this.scrollbarOptions);
+  initScrollbar(): void {
+    if (!!this.scrollableElement) {
+      this.mScrollbarService.initScrollbar(this.scrollableElement, this.scrollbarOptions);
+    }
   }
 
-  destroyScrollbar() {
-    try {
-      this.mScrollbarService.destroy(this.scrollableElement);
-    } catch (error) {
-      // workaround for malihu-custom-scrollbar-plugin issue:
-      // Cannot read property 'autoUpdate' of undefined
-      // https://github.com/malihu/malihu-custom-scrollbar-plugin/issues/392
+  destroyScrollbar(): void {
+    if (!!this.scrollableElement) {
+      try {
+        this.mScrollbarService.destroy(this.scrollableElement);
+      } catch (error) {
+        // workaround for malihu-custom-scrollbar-plugin issue:
+        // Cannot read property 'autoUpdate' of undefined
+        // https://github.com/malihu/malihu-custom-scrollbar-plugin/issues/392
+      }
     }
   }
 }
