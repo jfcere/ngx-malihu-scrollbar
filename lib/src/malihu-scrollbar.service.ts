@@ -1,4 +1,5 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Inject, Injectable, NgZone } from '@angular/core';
+import { MalihuScrollbarOptions } from './malihu-scrollbar.options';
 
 export type ScrollElement = string | JQuery | HTMLElement;
 
@@ -7,12 +8,15 @@ export class MalihuScrollbarService {
 
   constructor(
     private zone: NgZone,
+    @Inject(MalihuScrollbarOptions.SCROLLBAR_OPTIONS) private scrollBarOptions: Partial<MCustomScrollbar.CustomScrollbarOptions>,
   ) { }
 
-  initScrollbar(element: ScrollElement, options: MCustomScrollbar.CustomScrollbarOptions) {
+  initScrollbar(element: ScrollElement, options?: MCustomScrollbar.CustomScrollbarOptions) {
     const jQueryElement = this.getElement(element);
 
-    this.zone.runOutsideAngular(() => jQueryElement.mCustomScrollbar(options));
+    const mergedOptions = Object.assign({}, this.scrollBarOptions, options);
+
+    this.zone.runOutsideAngular(() => jQueryElement.mCustomScrollbar(mergedOptions));
 
     if (jQueryElement.length > 0 && jQueryElement[0].tagName === 'BODY') {
       jQueryElement[0].style.position = 'absolute';
