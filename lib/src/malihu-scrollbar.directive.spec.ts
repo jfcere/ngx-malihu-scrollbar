@@ -12,8 +12,8 @@ describe('MalihuScrollbarDirective:unit', () => {
 
   beforeEach(() => {
     const zone = TestBed.inject(NgZone);
-    mScrollbarService = new MalihuScrollbarService(zone);
-    mScrollbarDirective = new MalihuScrollbarDirective(mockElementRef, mScrollbarService);
+    mScrollbarService = new MalihuScrollbarService(zone, {});
+    mScrollbarDirective = new MalihuScrollbarDirective(mockElementRef, mScrollbarService, {});
   });
 
   describe('ngAfterViewInit', () => {

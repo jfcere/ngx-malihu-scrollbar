@@ -1,25 +1,97 @@
 import { TestBed } from '@angular/core/testing';
+import { MalihuScrollbarOptions } from './malihu-scrollbar.options';
 import { MalihuScrollbarService } from './malihu-scrollbar.service';
 
 describe('MalihuScrollbarService:unit', () => {
+  let moduleScrollbarOptions: Partial<MCustomScrollbar.CustomScrollbarOptions>;
   let mScrollbarService: MalihuScrollbarService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         MalihuScrollbarService,
+        {
+          provide: MalihuScrollbarOptions.SCROLLBAR_OPTIONS,
+          useValue: {
+            axis: 'y',
+            theme: 'dark',
+            contentTouchScroll: 0,
+          },
+        },
       ],
     });
   });
 
   beforeEach(() => {
     mScrollbarService = TestBed.inject(MalihuScrollbarService);
+    moduleScrollbarOptions = TestBed.inject(MalihuScrollbarOptions.SCROLLBAR_OPTIONS);
   });
 
   describe('initScrollbar', () => {
 
     it('should initialize scrollbar correctly', () => {
 
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
+      const scrollElement = 'scroll-element-x';
+      const scrollOptions =  {
+        axis: 'yx',
+        theme: 'theme-x',
+      } as MCustomScrollbar.CustomScrollbarOptions;
+
+      const mergedScrollbarOptions = Object.assign({}, moduleScrollbarOptions, scrollOptions);
+
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
+      spyOn(jQuery, 'mCustomScrollbar');
+
+      mScrollbarService.initScrollbar(scrollElement, scrollOptions);
+
+      expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
+      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith(mergedScrollbarOptions);
+    });
+
+    it('should initialize scrollbar correctly with module-level scroll bar options', () => {
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
+      const scrollElement = 'scroll-element-x';
+
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
+      spyOn(jQuery, 'mCustomScrollbar');
+
+      mScrollbarService.initScrollbar(scrollElement);
+
+      expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
+      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith(moduleScrollbarOptions);
+    });
+
+    it('should combine options from both component-level and module-level options', () => {
+      const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
+      const scrollElement = 'scroll-element-x';
+      const scrollOptions =  {
+        axis: 'yx',
+        theme: 'theme-x',
+      } as MCustomScrollbar.CustomScrollbarOptions;
+
+      spyOn(mScrollbarService as any, 'getElement').and.returnValue(jQuery);
+      spyOn(jQuery, 'mCustomScrollbar');
+
+      const mergedOptions = Object.assign({}, moduleScrollbarOptions, scrollOptions);
+      mScrollbarService.initScrollbar(scrollElement, scrollOptions);
+
+      expect(mScrollbarService['getElement']).toHaveBeenCalledWith(scrollElement);
+      expect(jQuery.mCustomScrollbar).toHaveBeenCalledWith(mergedOptions);
+    });
+
+    it('should initialize scrollbar correctly without module-level scroll bar options', () => {
+      TestBed.resetTestingModule();
+      TestBed.configureTestingModule({
+        providers: [
+          MalihuScrollbarService,
+          {
+            provide: MalihuScrollbarOptions.SCROLLBAR_OPTIONS,
+            useValue: {},
+          },
+        ],
+      });
+      mScrollbarService = TestBed.inject(MalihuScrollbarService);
       const jQuery =  { mCustomScrollbar: () => {} } as JQuery;
       const scrollElement = 'scroll-element-x';
       const scrollOptions =  {

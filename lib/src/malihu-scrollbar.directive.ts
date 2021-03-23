@@ -1,4 +1,5 @@
-import { AfterViewInit, Directive, ElementRef, Input, OnDestroy } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Inject, Input, OnDestroy } from '@angular/core';
+import { MalihuScrollbarOptions } from './malihu-scrollbar.options';
 import { MalihuScrollbarService } from './malihu-scrollbar.service';
 
 /**
@@ -18,6 +19,8 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   constructor(
     private elementRef: ElementRef,
     private mScrollbarService: MalihuScrollbarService,
+    @Inject(MalihuScrollbarOptions.SCROLLBAR_OPTIONS)
+    private customScrollbarOptions: MCustomScrollbar.CustomScrollbarOptions,
   ) { }
 
   ngAfterViewInit() {
@@ -40,7 +43,7 @@ export class MalihuScrollbarDirective implements AfterViewInit, OnDestroy {
   }
 
   initScrollbar() {
-    this.mScrollbarService.initScrollbar(this.scrollableElement, this.scrollbarOptions);
+    this.mScrollbarService.initScrollbar(this.scrollableElement, Object.assign({}, this.customScrollbarOptions, this.scrollbarOptions));
   }
 
   destroyScrollbar() {
