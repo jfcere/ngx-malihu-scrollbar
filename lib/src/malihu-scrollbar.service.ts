@@ -9,7 +9,7 @@ export class MalihuScrollbarService {
     private zone: NgZone,
   ) { }
 
-  initScrollbar(element: ScrollElement, options: MCustomScrollbar.CustomScrollbarOptions) {
+  initScrollbar(element: ScrollElement, options: MCustomScrollbar.CustomScrollbarOptions): void {
     const jQueryElement = this.getElement(element);
 
     this.zone.runOutsideAngular(() => jQueryElement.mCustomScrollbar(options));
@@ -22,23 +22,23 @@ export class MalihuScrollbarService {
     }
   }
 
-  scrollTo(element: ScrollElement, parameter: any, options: MCustomScrollbar.ScrollToParameterOptions) {
+  scrollTo(element: ScrollElement, parameter: any, options: MCustomScrollbar.ScrollToParameterOptions): void {
     this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('scrollTo', parameter, options));
   }
 
-  update(element: ScrollElement) {
+  update(element: ScrollElement): void {
     this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('update'));
   }
 
-  stop(element: ScrollElement) {
+  stop(element: ScrollElement): void{
     this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('stop'));
   }
 
-  disable(element: ScrollElement, reset?: boolean) {
+  disable(element: ScrollElement, reset?: boolean): void {
     this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('disable', !!reset));
   }
 
-  destroy(element: ScrollElement) {
+  destroy(element: ScrollElement): void {
     this.zone.runOutsideAngular(() => this.getElement(element).mCustomScrollbar('destroy'));
   }
 

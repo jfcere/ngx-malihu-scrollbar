@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     private mScrollbarService: MalihuScrollbarService,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.mScrollbarService.initScrollbar(document.body, { axis: 'y', theme: 'metro' });
   }
 }
