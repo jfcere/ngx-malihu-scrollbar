@@ -1,3 +1,7 @@
+> ### ⚠ The [Malihu Custom Scrollbar Plugin](https://github.com/malihu/malihu-custom-scrollbar-plugin) library this repository is based on is no longer maintained and doesn't work well with new jQuery versions. For this reason, the repository will no longer be updated and it is recommended to use another alternative.
+
+---
+
 # ngx-malihu-scrollbar
 [![CircleCI](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master.svg?style=shield)](https://circleci.com/gh/jfcere/ngx-malihu-scrollbar/tree/master) [![Coverage Status](https://coveralls.io/repos/github/jfcere/ngx-malihu-scrollbar/badge.svg?branch=master)](https://coveralls.io/github/jfcere/ngx-malihu-scrollbar?branch=master) [![version](https://img.shields.io/npm/v/ngx-malihu-scrollbar.svg?style=flat)](https://www.npmjs.com/package/ngx-malihu-scrollbar) [![npm](https://img.shields.io/npm/l/ngx-malihu-scrollbar.svg)](https://opensource.org/licenses/MIT) [![dependencies Status](https://david-dm.org/jfcere/ngx-malihu-scrollbar/status.svg?path=lib)](https://david-dm.org/jfcere/ngx-malihu-scrollbar?path=lib) [![peerDependencies Status](https://david-dm.org/jfcere/ngx-malihu-scrollbar/peer-status.svg?path=lib)](https://david-dm.org/jfcere/ngx-malihu-scrollbar?path=lib&type=peer) [![monthly Downloads](https://img.shields.io/npm/dm/ngx-malihu-scrollbar.svg)](https://www.npmjs.com/package/ngx-malihu-scrollbar)
 
