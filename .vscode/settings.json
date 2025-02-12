@@ -1,5 +1,24 @@
 {
+  "auto-close-tag.activationOnLanguage": [
+    "html"
+  ],
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+
+  "files.associations": {
+    "*.json": "jsonc",
+    "package.json": "json"
+  },
+
   "files.trimTrailingWhitespace": true,
+
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  },
+
+  "typescript.tsdk": "node_modules\\typescript\\lib",
 
   "vsicons.presets.angular": true
 }

@@ -8,13 +8,13 @@ import { MalihuScrollbarService } from './malihu-scrollbar.service';
   declarations: [MalihuScrollbarDirective],
 })
 export class MalihuScrollbarModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<MalihuScrollbarModule> {
     return {
       ngModule: MalihuScrollbarModule,
       providers: [MalihuScrollbarService],
     };
   }
-  static forChild(): ModuleWithProviders {
+  static forChild(): ModuleWithProviders<MalihuScrollbarModule> {
     return {
       ngModule: MalihuScrollbarModule,
     };
